@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="bower_components/angular-material-icons/angular-material-icons.js"></script>
+    <script src="bower_components/firebase/firebase.js"></script>
+    <script src="bower_components/angularfire/dist/angularfire.min.js"></script>
+
+    <script src="app.js"></script>
+
+</head>
+<body ng-app="PanaTeamOfTeam">
+
+    <div layout="column"  ng-controller="getUsersDetails">
+        <md-toolbar class="">
+            <div class="md-toolbar-tools">
+                <span >PanaCloud Project</span>
+
+                <span flex></span>
+                <label >Enter Your Work::</label>
+                <span> <input type="text" ng-model="task.work"> </span>
+                <md-button class="md-accent md-raised md-hue-1" ng-click="savetask()">
+                    Add Your Work
+                </md-button>
+            </div>
+        </md-toolbar>
+        <br>
+        <br>
+    <md-content>
+
+        <div ng-cloak layout-gt-sm="row" layout="column" >
+        <!--To Do Section-->
+
+        <div flex-gt-sm="50" flex >
+            <md-toolbar layout="row" md-no-ink class="md-primary" >
+                <div class="md-toolbar-tools">
+                    <span>To Do</span>
+                </div>
+            </md-toolbar>
+<md-content ng-controller="showTodos">
+
+    <div layout="row" layout-padding layout-wrap layout-fill style="padding-bottom: 20px;" ng-cloak>
+        <md-whiteframe class="md-whiteframe-5dp" flex-sm="70"
+                       flex-gt-sm="70" flex-gt-md="100"
+                       layout layout-align="center center" ng-repeat="showing in messages">
+            <h3>{{showing.work}}</h3>
+            <hr>
+            <md-button ng-click="removeTask(showing)" class="md-warn">X</md-button>
+
+        </md-whiteframe>
+
+    </div>
+</md-content>
+
+        </div>
+        <md-divider></md-divider>
+        <!--Doing Section-->
+        <div flex-gt-sm="50" flex >
+            <md-toolbar layout="row" class="md-accent md-raised md-hue-1"   >
+                <div class="md-toolbar-tools">
+                    <span>Doing</span>
+                </div>
+            </md-toolbar>
+            <md-content>
+
+            </md-content>
+        </div>
+        <md-divider></md-divider>
+        <!--Review   Section-->
+        <div flex-gt-sm="50" flex >
+            <md-toolbar layout="row" class="md-warn md-raised md-hue-2" >
+                <div class="md-toolbar-tools">
+                    <span>Review</span>
+                </div>
+            </md-toolbar>
+            <md-content>
+
+            </md-content>
+        </div>
+        <md-divider></md-divider>
+        <!--Done Section-->
+        <div flex-gt-sm="50" flex >
+            <md-toolbar layout="column" class="md-primary md-hue-1" >
+                <div class="md-toolbar-tools">
+                    <span>Done</span>
+                </div>
+            </md-toolbar>
+            <md-content>
+
+            </md-content>
+        </div>
+
+
+
+
+
+
+
+</div>
+    </md-content>
+    </div>
+
+</body>
+</html>
